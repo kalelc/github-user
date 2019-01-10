@@ -40,7 +40,7 @@ var routes = Routes{
 	Route{
 		"results",
 		"/results",
-		"GET",
+		"POST",
 		Results,
 	},
 }
