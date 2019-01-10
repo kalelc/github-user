@@ -38,8 +38,8 @@ var routes = Routes{
 		Index,
 	},
 	Route{
-		"results",
-		"/results",
+		"result",
+		"/result",
 		"POST",
 		Results,
 	},
