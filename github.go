@@ -1,6 +1,6 @@
 package main
 
-const IssuesURL = "https://api.github.com/search/users"
+const usersURL = "https://api.github.com/search/users"
 
 type UsersSearchResult struct {
 	TotalCount int `json:"total_count"`
