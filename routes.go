@@ -41,6 +41,6 @@ var routes = Routes{
 		"result",
 		"/result",
 		"POST",
-		Results,
+		Result,
 	},
 }

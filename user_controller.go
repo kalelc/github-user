@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"html/template"
 	"net/http"
-	"net/url"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -20,8 +20,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 func Result(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
-	q := url.QueryEscape(name)
-	resp, err := http.Get(usersURL + "?q=" + q)
+	resp, err := http.Get(usersURL + "?q=" + name)
 
 	if err != nil {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
@@ -36,6 +35,7 @@ func Result(w http.ResponseWriter, r *http.Request) {
 	var result UsersSearchResult
 
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		fmt.Println(err)
 		resp.Body.Close()
 		return
 	}
